@@ -9,6 +9,12 @@ function App() {
       <h1>User Profile Card Example</h1>
 
       <UserProfile
+        name="Alice"
+        age="25"
+        bio="Loves hiking and photography"
+      />
+      
+      <UserProfile
         name="Alice Johnson"
         age={30} 
         bio="Passionate software developer with a love for open-source projects and continuous learning. Enjoys hiking and playing chess in free time."

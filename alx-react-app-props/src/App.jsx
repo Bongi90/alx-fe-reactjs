@@ -1,4 +1,4 @@
-import ProfilePage from './ProfilePage';
+import ProfilePage from './components/ProfilePage';
 import UserContext from './contexts/UserContext';
 
 function App() {
@@ -12,5 +12,6 @@ function App() {
 }
 
 export default App;
+
 
 

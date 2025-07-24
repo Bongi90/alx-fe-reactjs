@@ -2,7 +2,9 @@ import { Routes, Route } from 'react-router-dom';
 import AddRecipeForm from './components/AddRecipeForm';
 import RecipeList from './components/RecipeList';
 import RecipeDetails from './components/RecipeDetails';
-import SearchBar from './components/SearchBar'; // Import SearchBar
+import SearchBar from './components/SearchBar';
+import FavoritesList from './components/FavoritesList'; 
+import RecommendationsList from './components/RecommendationsList'; 
 import './App.css';
 
 function App() {
@@ -13,8 +15,10 @@ function App() {
         <Route path="/" element={
           <>
             <AddRecipeForm />
-            <SearchBar /> {/* Place SearchBar prominently */}
+            <SearchBar />
             <RecipeList />
+            <FavoritesList /> {/* New: Render FavoritesList */}
+            <RecommendationsList /> {/* New: Render RecommendationsList */}
           </>
         } />
         <Route path="/recipes/:recipeId" element={<RecipeDetails />} />

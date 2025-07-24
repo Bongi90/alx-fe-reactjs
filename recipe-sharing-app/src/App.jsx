@@ -1,15 +1,19 @@
-import AddRecipeForm from './components/AddRecipeForm';
-import RecipeList from './components/RecipeList';
-import './App.css'; // Keep or remove if you don't need global styling
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import RecipeList from './RecipeList';
+import RecipeDetails from './RecipeDetails';
+// import other components...
 
 function App() {
   return (
-    <div style={{ fontFamily: 'Arial, sans-serif', padding: '20px', maxWidth: '800px', margin: '0 auto' }}>
-      <h1>Recipe Sharing Application</h1>
-      <AddRecipeForm />
-      <RecipeList />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<RecipeList />} />
+        <Route path="/recipe/:id" element={<RecipeDetails />} />
+        {/* add other routes here if needed */}
+      </Routes>
+    </Router>
   );
 }
 
 export default App;
+

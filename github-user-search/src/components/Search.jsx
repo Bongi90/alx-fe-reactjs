@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { fetchUserData } from '../services/githubService';
+import UserCard from './UserCard';
 
 const Search = () => {
   const [username, setUsername] = useState('');
@@ -19,7 +20,7 @@ const Search = () => {
       const data = await fetchUserData(username);
       setUser(data);
     } catch (err) {
-      setError("Looks like we can't find the user");
+      setError("Looks like we cant find the user"); // 
     } finally {
       setLoading(false);
     }
@@ -30,7 +31,7 @@ const Search = () => {
       <form onSubmit={handleSubmit}>
         <input
           type="text"
-          placeholder="Search GitHub username"
+          placeholder="Enter GitHub username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
@@ -39,18 +40,10 @@ const Search = () => {
 
       {loading && <p>Loading...</p>}
       {error && <p style={{ color: 'red' }}>{error}</p>}
-
-      {user && (
-        <div style={{ marginTop: '1rem' }}>
-          <img src={user.avatar_url} alt="avatar" width={100} />
-          <h2>{user.name || user.login}</h2>
-          <a href={user.html_url} target="_blank" rel="noreferrer">
-            View GitHub Profile
-          </a>
-        </div>
-      )}
+      {user && <UserCard user={user} />}
     </div>
   );
 };
 
 export default Search;
+

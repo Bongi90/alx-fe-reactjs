@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { fetchUserData } from '../services/githubService';
+
 
 const SearchBar = ({ onSearch }) => {
   const [username, setUsername] = useState('');

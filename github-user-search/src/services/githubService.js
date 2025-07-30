@@ -1,3 +1,4 @@
+// githubService.js
 import axios from 'axios';
 
 const BASE_URL = import.meta.env.VITE_GITHUB_API_BASE_URL;
@@ -10,8 +11,9 @@ const axiosInstance = axios.create({
   },
 });
 
-export const fetchUser = async (username) => {
+export const fetchUserData = async (username) => {
   const response = await axiosInstance.get(`/users/${username}`);
   return response.data;
 };
+
 

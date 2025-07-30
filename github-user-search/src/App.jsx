@@ -1,14 +1,14 @@
 import { useState } from 'react';
 import SearchBar from './components/SearchBar';
 import UserCard from './components/UserCard';
-import { fetchUser } from './services/githubService';
+import { fetchUserData } from './services/githubService';
 
 function App() {
   const [userData, setUserData] = useState(null);
 
   const handleSearch = async (username) => {
     try {
-      const data = await fetchUser(username);
+      const data = await fetchUserData(username);
       setUserData(data);
     } catch (error) {
       console.error('Error fetching GitHub user:', error);
@@ -26,4 +26,5 @@ function App() {
 }
 
 export default App;
+
 

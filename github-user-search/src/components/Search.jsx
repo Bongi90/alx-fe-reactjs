@@ -20,7 +20,7 @@ const Search = () => {
       const data = await fetchUserData(username);
       setUser(data);
     } catch (err) {
-      setError("Looks like we cant find the user"); // 
+      setError("Looks like we cant find the user"); // ← exact match string
     } finally {
       setLoading(false);
     }
@@ -46,4 +46,3 @@ const Search = () => {
 };
 
 export default Search;
-

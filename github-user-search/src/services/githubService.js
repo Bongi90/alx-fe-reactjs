@@ -1,18 +1,35 @@
 import axios from 'axios';
 
-const BASE_URL = 'https://api.github.com';
+const githubService = {
+  searchGitHubUsers: async (username, location, minRepos, page = 1, perPage = 10) => {
+    try {
+      let query = username.trim();
 
-const axiosInstance = axios.create({
-  baseURL: BASE_URL,
-});
+      if (location.trim()) {
+        query += `+location:${location.trim()}`;
+      }
 
-export const fetchUsers = async (username, location, minRepos) => {
-  let query = `user:${username}`;
-  if (location) query += `+location:${location}`;
-  if (minRepos) query += `+repos:>=${minRepos}`;
+      if (minRepos && !isNaN(minRepos) && minRepos > 0) {
+        query += `+repos:>${minRepos}`;
+      }
 
-  const response = await axiosInstance.get(`/search/users?q=${query}`);
-  return response.data.items;
+      if (!query) {
+        return { items: [], total_count: 0 };
+      }
+
+      const apiUrl = `https://api.github.com/search/users?q=${encodeURIComponent(query)}&page=${page}&per_page=${perPage}`;
+
+      const response = await axios.get(apiUrl);
+      return response.data;
+    } catch (error) {
+      console.error("Error searching GitHub users:", error);
+      throw error;
+    }
+  }
 };
+
+export default githubService;
+
+
 
 

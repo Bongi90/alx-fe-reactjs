@@ -1,7 +1,8 @@
 import React from 'react';
 import { Github } from 'lucide-react';
-import Search from './components/Search'; 
-import './index.css'; 
+import Search from './components/Search';
+import './index.css';
+
 function App() {
   return (
     <div className="min-h-screen bg-gray-900 text-gray-100 p-4 sm:p-8 flex items-center justify-center">

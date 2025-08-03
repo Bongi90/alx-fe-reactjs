@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Existing CSS from your project setup should remain below the Tailwind directives */
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -33,7 +32,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
-  font-family: 'Inter', sans-serif; /* Ensure Inter font is used, overriding default if necessary */
+  font-family: 'Inter', sans-serif;
 }
 
 h1 {
@@ -72,4 +71,3 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
-
